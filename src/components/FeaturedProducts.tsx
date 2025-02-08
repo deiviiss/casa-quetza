@@ -7,26 +7,25 @@ import { useState } from "react"
 const products = [
   {
     name: "Pre-Rolados 'Viento del Monte'",
-    // image: "/pre-rolados.jpg",
-    image: "/imgs/purple-flor.png",
+    image: "/imgs/pre-rolados.png",
     description: "Disfruta de la experiencia pura del cáñamo con nuestros pre-rolados premium.",
   },
   {
     name: "Cremas, Aceites y Miel con CBD",
     // image: "/cbd-products.jpg",
-    image: "/imgs/blue-flor.png",
+    image: "/imgs/crema-cbd.png",
     description: "Productos de bienestar infundidos con CBD para tu rutina diaria.",
   },
   {
     name: "Velas y Souvenirs de cáñamo",
     // image: "/hemp-souvenirs.jpg",
-    image: "/imgs/chica-frasco.png",
+    image: "/imgs/vela-decorativa.png",
     description: "Lleva contigo un pedazo de nuestra cultura del cáñamo.",
   },
   {
     name: "Biofertilizante Orgánico",
     // image: "/biofertilizer.jpg",
-    image: "/imgs/purple-flor.png",
+    image: "/imgs/aceite-cbd.png",
     description: "Nutre tus cultivos de manera natural con nuestro biofertilizante de cáñamo.",
   },
 ]

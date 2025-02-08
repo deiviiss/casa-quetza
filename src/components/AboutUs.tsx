@@ -43,7 +43,7 @@ export default function AboutUs() {
           >
             <Image
               // src="/milpas-regenerativas.jpg"
-              src="/imgs/cabeza-rota.png"
+              src="/imgs/milpas.jpg"
               alt="Milpas regenerativas y banco de semillas"
               width={600}
               height={400}

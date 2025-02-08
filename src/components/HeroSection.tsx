@@ -7,11 +7,10 @@ export default function HeroSection() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <Image
-        // src="/hero-background.jpg"
-        src="/imgs/blue-flor.png"
+        src="/imgs/hero-background.png"
         alt="Cultivos regenerativos de cáñamo"
-        layout="fill"
-        objectFit="cover"
+        fill
+        className="object-cover"
         quality={100}
         priority
       />

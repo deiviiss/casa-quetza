@@ -1,16 +1,40 @@
 "use client"
 
+import { sendEmail } from "@/actions/notifications/email/send-email-message"
 import { motion } from "framer-motion"
 import { useState } from "react"
 
 export default function CallToAction() {
-  const [email, setEmail] = useState("")
+  const [isSubmittingMessage, setIsSubmittingMessage] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted with email:", email)
-    setEmail("")
+    const form = e.currentTarget as HTMLFormElement
+    const formData = new FormData(form)
+    setIsSubmittingMessage(true)
+
+    //! SHOULD BE CASTING TO ZOD
+    const userEmail = formData.get('email') as string
+    const userAdmin = 'casaquetzalcannabisseeds@hotmail.com'
+
+    await sendEmail({
+      to: userAdmin,
+      subject: 'Suscripción al boletín de noticias',
+      message: `
+          <div div style="font-family: Arial, sans-serif; background-color: #1a1a1a; color: #f0f0f0; padding: 20px; border-radius: 8px;" >
+      <h2 style="color: #ffffff;">¡Nuevo suscriptor!</h2>
+      <p><strong style="color: #ffffff;">Datos del usuario:</strong></p>
+      <ul style="list-style-type: none; padding: 0;">
+        <li style="color: #cccccc;"><strong>Email:</strong> ${userEmail}</li>
+      </ul>
+      <hr style="border: 1px solid #333;" />
+      <p style="color: #cccccc;">Este mensaje fue enviado desde el formulario de contacto del sitio web.</p>
+    </div >
+        `
+    })
+
+    form.reset()
+    setIsSubmittingMessage(false)
   }
 
   return (
@@ -33,16 +57,17 @@ export default function CallToAction() {
         >
           <div className="flex flex-col sm:flex-row gap-4">
             <input
+              name="email"
               type="email"
               placeholder="Tu correo electrónico"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               className="flex-grow px-4 py-2 rounded-full text-gray-800"
               required
+              disabled={isSubmittingMessage}
             />
             <button
               type="submit"
-              className="bg-white text-green-600 font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition duration-300"
+              disabled={isSubmittingMessage}
+              className={`bg-white text-green-600 font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition duration-300 ${isSubmittingMessage ? "cursor-not-allowed" : ""}`}
             >
               Suscribirse
             </button>
