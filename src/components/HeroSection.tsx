@@ -3,14 +3,35 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  title: string
+  subtitle: string
+  desktopImage: string;
+  mobileImage: string;
+  imageAlt: string
+  ctaText?: string
+  ctaLink?: string
+}
+
+export default function HeroSection({ title, subtitle, desktopImage, mobileImage, imageAlt, ctaText, ctaLink }: HeroSectionProps) {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* mobile */}
       <Image
-        src="/imgs/hero-background.png"
-        alt="Cultivos regenerativos de cáñamo"
+        src={mobileImage}
+        alt={imageAlt}
         fill
-        className="object-cover"
+        className="object-cover sm:hidden"
+        quality={100}
+        priority
+      />
+
+      {/* desktop */}
+      <Image
+        src={desktopImage}
+        alt={imageAlt}
+        fill
+        className="object-cover hidden sm:block"
         quality={100}
         priority
       />
@@ -22,7 +43,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Innovación en Genética y Sustentabilidad del Cáñamo
+          {title}
         </motion.h1>
         <motion.p
           className="text-xl md:text-2xl mb-8"
@@ -30,17 +51,22 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Semillas certificadas, productos derivados y un dispensario digital exclusivo
+          {subtitle}
         </motion.p>
-        <motion.a
-          href="#join"
-          className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          Únete a nuestra comunidad
-        </motion.a>
+        {
+          ctaText && ctaLink && (
+            <motion.a
+              href={ctaLink}
+              target="_blank"
+              className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              {ctaText}
+            </motion.a>
+          )
+        }
       </div>
     </section>
   )
