@@ -36,6 +36,7 @@ export const TopMenu = () => {
           <ul className="space-x-4 flex">
             <li><Link href="/" className="hover:text-green-200 transition-transform">Inicio</Link></li>
             <li><Link href="/memberships" className="hover:text-green-200 transition-transform">Membresías</Link></li>
+            <li><Link href="/products" className="hover:text-green-200 transition-transform">Productos</Link></li>
           </ul>
         </nav>
       </header>
