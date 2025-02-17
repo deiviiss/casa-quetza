@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Link from "next/link";
 import { FaLeaf, FaTractor, FaStore, FaHandshake } from "react-icons/fa"
 
 interface Membership {
@@ -64,7 +65,7 @@ const memberships = [
 
 export default function MembershipCards() {
   return (
-    <section id="membership-cards" className="py-16 bg-gray-50">
+    <section id="membership-cards" className="py-16 pt-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-3xl md:text-4xl font-bold mb-12 text-center"
@@ -117,7 +118,11 @@ function MembershipCard({ membership, index }: MembershipCardProps) {
       </div>
       <div className="px-6 pb-6">
         <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
-          {membership.buttonText}
+          <Link href={`https://wa.me/529999688834?text=Hola%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n%20acerca%20de%20la%20suscripción%20de%20${membership.title}...
+`} passHref target='_blank'>
+            {membership.buttonText}
+          </Link>
+
         </button>
       </div>
     </motion.div>
