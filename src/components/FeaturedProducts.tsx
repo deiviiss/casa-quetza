@@ -6,7 +6,7 @@ import { useState } from "react"
 
 const products = [
   {
-    name: "Pre-Rolados 'Viento del Monte'",
+    name: "Pre-Rolados K’aax Ik’",
     image: "/imgs/pre-rolados.png",
     description: "Disfruta de la experiencia pura del cáñamo con nuestros pre-rolados premium.",
   },
@@ -65,7 +65,13 @@ export default function FeaturedProducts() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="text-2xl font-semibold mb-4">{products[currentProduct].name}</h3>
+            <h3
+              className="text-2xl font-semibold mb-4"
+              dangerouslySetInnerHTML={{
+                __html: products[currentProduct].name.replace("K’aax Ik’", "<u>K’aax Ik’</u>")
+              }}
+            />
+
             <p className="text-lg mb-6">{products[currentProduct].description}</p>
             <div className="flex space-x-4">
               {products.map((_, index) => (

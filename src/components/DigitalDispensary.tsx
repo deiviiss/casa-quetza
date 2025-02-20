@@ -51,7 +51,7 @@ export default function DigitalDispensary() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <a
-            href="#explore-memberships"
+            href="memberships"
             className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300"
           >
             Explora las Membresías
