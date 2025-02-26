@@ -36,7 +36,7 @@ export default function AboutUs() {
             </p>
           </motion.div>
           <motion.div
-            className="md:w-1/2"
+            className="md:w-1/2 mx-auto flex justify-center"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -47,7 +47,7 @@ export default function AboutUs() {
               alt="Milpas regenerativas y banco de semillas"
               width={600}
               height={400}
-              className="rounded-lg shadow-lg"
+              className="rounded-lg shadow-lg w-96 h-96 object-cover"
             />
           </motion.div>
         </div>

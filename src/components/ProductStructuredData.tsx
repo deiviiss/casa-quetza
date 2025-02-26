@@ -14,7 +14,7 @@ export default function ProductStructuredData({ products }: ProductStructuredDat
       item: {
         "@type": "Product",
         name: product.name,
-        description: product.description,
+        description: product.shortDescription,
         image: product.image,
         offers: {
           "@type": "Offer",

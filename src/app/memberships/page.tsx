@@ -13,7 +13,7 @@ export default function MembershipPage() {
   return (
     <main className="min-h-screen">
       <HeroSection
-        title="Elige la Membresía que se Adapte a Ti"
+        title="Tu plan, tu elección: encuentra la membresía perfecta"
         subtitle="Accede a productos exclusivos, descuentos y contenido premium"
         desktopImage="/imgs/hero-background.png"
         mobileImage="/imgs/hero-background-mobile.jpg"

@@ -1,3 +1,4 @@
+import { getProducts } from "@/actions/products/get-products";
 import AboutUs from "@/components/AboutUs";
 import CallToAction from "@/components/CallToActions";
 import DigitalDispensary from "@/components/DigitalDispensary";
@@ -6,11 +7,12 @@ import FeaturedProducts from "@/components/FeaturedProducts";
 import HeroSection from "@/components/HeroSection";
 import SeedBank from "@/components/SeedBank";
 
-export default function Home() {
+export default async function Home() {
+  const { products } = await getProducts()
   return (
     <main className="min-h-screen">
       <HeroSection
-        title="Innovación en Genética y Sustentabilidad del Cáñamo"
+        title="Innovación en genética y sustentabilidad del cáñamo"
         subtitle="Semillas certificadas, productos derivados y un dispensario digital exclusivo"
         ctaLink="https://www.facebook.com/QuetzalSeeds420"
         ctaText="Únete a nuestra comunidad"
@@ -22,7 +24,7 @@ export default function Home() {
         <AboutUs />
         <SeedBank />
         <DigitalDispensary />
-        <FeaturedProducts />
+        <FeaturedProducts products={products} />
         <DigitalStrategy />
         <CallToAction />
       </div>

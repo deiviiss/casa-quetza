@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link";
-import { FaLeaf, FaTractor, FaStore, FaHandshake } from "react-icons/fa"
+import { FaLeaf, FaTractor, FaStore } from "react-icons/fa"
 
 interface Membership {
   title: string;
@@ -23,14 +23,13 @@ const memberships = [
   {
     title: "Consumer",
     icon: FaLeaf,
-    price: "$139/mes",
-    firstTime: "$69.50",
+    price: "$99/mes",
     benefits: ["Acceso a productos con THC", "Descuentos en productos CBD", "Contenido educativo exclusivo"],
     buttonText: "Únete Ahora",
   },
   {
     title: "Productores",
-    price: "$239/mes",
+    price: "$3,000/anual",
     icon: FaTractor,
     benefits: [
       "Acceso a semillas certificadas",
@@ -41,7 +40,7 @@ const memberships = [
   },
   {
     title: "Distribuidores",
-    price: "$499/mes",
+    price: "$139/mes",
     icon: FaStore,
     benefits: [
       "Precios preferenciales en lotes grandes",
@@ -50,17 +49,17 @@ const memberships = [
     ],
     buttonText: "Ser Distribuidor",
   },
-  {
-    title: "Socios",
-    price: "Inversión Mínima $5,000",
-    icon: FaHandshake,
-    benefits: [
-      "Participación en toma de decisiones estratégicas",
-      "Acceso a eventos y networking",
-      "Oportunidad de inversión en nuevos productos",
-    ],
-    buttonText: "Forma Parte",
-  },
+  // {
+  //   title: "Socios",
+  //   price: "Inversión Mínima $50,000",
+  //   icon: FaHandshake,
+  //   benefits: [
+  //     "Participación en toma de decisiones estratégicas",
+  //     "Acceso a eventos y networking",
+  //     "Oportunidad de inversión en nuevos productos",
+  //   ],
+  //   buttonText: "Forma Parte",
+  // },
 ]
 
 export default function MembershipCards() {
@@ -75,7 +74,7 @@ export default function MembershipCards() {
         >
           Nuestras Membresías
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {memberships.map((membership, index) => (
             <MembershipCard key={membership.title} membership={membership} index={index} />
           ))}
@@ -88,22 +87,22 @@ export default function MembershipCards() {
 function MembershipCard({ membership, index }: MembershipCardProps) {
   return (
     <motion.div
-      className="bg-white rounded-lg shadow-lg overflow-hidden"
+      className="bg-white rounded-lg shadow-lg overflow-hidden  flex flex-col justify-between"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: index * 0.1 }}
       whileHover={{ scale: 1.05 }}
     >
       <div className="p-6">
-        <membership.icon className="text-4xl text-green-600 mb-4" />
+        <membership.icon className="text-4xl text-slate-600 mb-4" />
         <h3 className="text-2xl font-semibold mb-2">{membership.title}</h3>
-        {membership.price && <p className="text-xl font-bold mb-2 text-green-600">{membership.price}</p>}
+        {membership.price && <p className="text-xl font-bold mb-2 text-slate-600">{membership.price}</p>}
         {membership.firstTime && <p className="text-sm mb-4">Primera vez: {membership.firstTime}</p>}
         <ul className="mb-6">
           {membership.benefits.map((benefit, index) => (
             <li key={index} className="flex items-center mb-2">
               <svg
-                className="w-4 h-4 mr-2 text-green-600"
+                className="w-4 h-4 mr-2 text-slate-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -117,7 +116,7 @@ function MembershipCard({ membership, index }: MembershipCardProps) {
         </ul>
       </div>
       <div className="px-6 pb-6">
-        <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+        <button className="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded transition duration-300">
           <Link href={`https://wa.me/529999688834?text=Hola%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n%20acerca%20de%20la%20suscripción%20de%20${membership.title}...
 `} passHref target='_blank'>
             {membership.buttonText}

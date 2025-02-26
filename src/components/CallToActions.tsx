@@ -38,7 +38,7 @@ export default function CallToAction() {
   }
 
   return (
-    <section className="py-16 bg-green-600 text-white">
+    <section className="py-16 bg-slate-800 text-white">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-3xl md:text-4xl font-bold mb-8 text-center"
@@ -67,7 +67,7 @@ export default function CallToAction() {
             <button
               type="submit"
               disabled={isSubmittingMessage}
-              className={`bg-white text-green-600 font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition duration-300 ${isSubmittingMessage ? "cursor-not-allowed" : ""}`}
+              className={`bg-white text-slate-600 font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition duration-300 ${isSubmittingMessage ? "cursor-not-allowed" : ""}`}
             >
               Suscribirse
             </button>
