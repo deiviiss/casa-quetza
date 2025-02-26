@@ -52,7 +52,7 @@ export default function DigitalDispensary() {
         >
           <a
             href="memberships"
-            className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300"
+            className="bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300"
           >
             Explora las Membresías
           </a>

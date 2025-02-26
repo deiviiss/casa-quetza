@@ -1,36 +1,17 @@
 "use client"
 
+import { Product } from "@/types/product.interface"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
-const products = [
-  {
-    name: "Pre-Rolados K’aax Ik’",
-    image: "/imgs/pre-rolados.png",
-    description: "Disfruta de la experiencia pura del cáñamo con nuestros pre-rolados premium.",
-  },
-  {
-    name: "Cremas, Aceites y Miel con CBD",
-    // image: "/cbd-products.jpg",
-    image: "/imgs/crema-cbd.png",
-    description: "Productos de bienestar infundidos con CBD para tu rutina diaria.",
-  },
-  {
-    name: "Velas y Souvenirs de cáñamo",
-    // image: "/hemp-souvenirs.jpg",
-    image: "/imgs/vela-decorativa.png",
-    description: "Lleva contigo un pedazo de nuestra cultura del cáñamo.",
-  },
-  {
-    name: "Biofertilizante Orgánico",
-    // image: "/biofertilizer.jpg",
-    image: "/imgs/aceite-cbd.png",
-    description: "Nutre tus cultivos de manera natural con nuestro biofertilizante de cáñamo.",
-  },
-]
+interface FeaturedProductsProps {
+  products: Product[]
+}
 
-export default function FeaturedProducts() {
+export default function FeaturedProducts({ products }: FeaturedProductsProps) {
+  const router = useRouter()
   const [currentProduct, setCurrentProduct] = useState(0)
 
   return (
@@ -56,7 +37,8 @@ export default function FeaturedProducts() {
               alt={products[currentProduct].name}
               width={600}
               height={400}
-              className="rounded-lg shadow-lg object-cover max-h-96"
+              className="rounded-lg shadow-lg object-cover max-h-96 hover:cursor-pointer"
+              onClick={() => router.push(`/products/${products[currentProduct].id}`)}
             />
           </motion.div>
           <motion.div
@@ -72,12 +54,12 @@ export default function FeaturedProducts() {
               }}
             />
 
-            <p className="text-lg mb-6">{products[currentProduct].description}</p>
+            <p className="text-lg mb-6">{products[currentProduct].shortDescription}</p>
             <div className="flex space-x-4">
               {products.map((_, index) => (
                 <button
                   key={index}
-                  className={`w-3 h-3 rounded-full ${index === currentProduct ? "bg-green-600" : "bg-gray-300"}`}
+                  className={`w-3 h-3 rounded-full ${index === currentProduct ? "bg-slate-800" : "bg-gray-300"}`}
                   onClick={() => setCurrentProduct(index)}
                 />
               ))}

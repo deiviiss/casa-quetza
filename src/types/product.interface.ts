@@ -1,7 +1,12 @@
 export interface Product {
-  name: string
-  description: string
-  price: number
-  image: string
+  id?: string;
+  name: string;
+  shortDescription: string;
+  longDescription: string;
+  price: number;
+  image: string;
+  benefits: string[];
+  usage: string[];
+  ingredients: string[];
+  origin: string;
 }
-
